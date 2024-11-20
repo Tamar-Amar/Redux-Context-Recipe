@@ -1,0 +1,38 @@
+
+recipe axios:
+    //פונקציה שניגשת לשרת לשליפת כל המתכונים
+    export const getAllRecipe=()=>{
+        const data= axios.get(`${url}getAllRecipe`)
+        return data
+    }
+
+    //פונקציה להחזרת מתכון על פי שם
+    export const getRecipeByName=(name)=>{
+        const recipe= axios.get(`${url}getRecipeByName/${name}`)
+        return recipe
+    }
+
+    //פונקציה למחיקת מתכון על פי שם - לא השתמשתי
+    export const dellRecipeByName=(name)=>{
+        const listR= axios.delete(`${url}dellRecipeByName/${name}`)
+        return listR
+    }
+
+user axios:
+    //פונקציה שניגשת לשרת לשליפת כל המשתמשים
+    export const getAllUser=()=>{
+        const data= axios.get(`${url}getAllUser`)
+        return data
+    }
+
+    //פונקציה למחיקת משתמש לפי כתובת מייל- לא השתמשתי
+    export const dellUserByEmail=(email)=>{
+        const listR= axios.delete(`${url}dellUserByEmail/${email}`)
+        return listR
+    }
+
+    //מציאת משתמש לפי כתובת מייל - לא השתמשתי
+    export const getUserByEmail=(email)=>{
+        const user= axios.get(`${url}/getUserByEmail/${email}`)
+        return user
+    }

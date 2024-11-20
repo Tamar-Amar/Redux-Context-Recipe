@@ -1,0 +1,14 @@
+.navbar-logo-tamar {
+    width: 45px;
+    height: auto;
+    background-color: white;
+    border-radius: 60%;
+    border-color: rgb(30, 28, 28);
+    border-style: solid;
+  }
+
+.nav-item::marker{
+    content:''; /* או כל תוכן אחר שתרצה */
+    color: rgb(0, 0, 0); /* צבע המרקר */
+    font-weight: bold; /* משקל דפוס הטקסט */
+}

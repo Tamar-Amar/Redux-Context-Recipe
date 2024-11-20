@@ -1,0 +1,12 @@
+
+.form-control{
+    text-align: right;
+}
+
+.register-Details{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-right: 40%;
+    text-align: right;
+}

@@ -1,0 +1,45 @@
+user controller:    
+    //Deleting a user by ID
+    //I didn't use this function in axios
+    myRoutUser.delete('/dellUser/:_idToDelete',async (req, res)=>{
+        //Extracting the parameter from the url
+        let id=req.params._idToDelete
+        let g=await userModel.findOneAndDelete({'_id':id})
+        res.json(g)
+    })
+
+    //Finding a user by email address
+    //I used this function in axios
+    myRoutUser.get('/getUserByEmail/:email',async(req,res)=>{
+        let email=req.params.email
+        let user= await userModel.findOne({'userEmailAdress':email})
+        res.json(user)
+    })
+
+    //Deleting a user by email address
+    //I used this function in axios
+    myRoutUser.delete('/dellUserByEmail/:email',async(req,res)=>{
+        let email=req.params.email
+        let listU= await userModel.findOneAndDelete({'userEmailAdress':email})
+        res.json(listU)
+    })
+
+recipe controller:
+    //Deleting a recipe by name
+    //I used this function in axios
+    myRout.delete('/dellRecipeByName/:name',async (req, res)=>{
+        //Extracting the parameter from the url
+        let localName=req.params.name
+        let g=await recipeModel.findOneAndDelete({nameRecipe:localName})
+        res.json(g)
+    })
+
+    //Deleting a recipe by ID 
+    //I didn't use this function in axios
+    myRout.delete('/dellRecipeById/:_idToDelete',async (req, res)=>{
+        //Extracting the parameter from the url
+        let id=req.params._idToDelete
+        let g=await recipeModel.findOneAndDelete({_id:id})
+        res.json(g)
+    })
+

@@ -1,0 +1,21 @@
+//סטייט גלובלי שיהיה מוכר בכל הפרויקט - מלאי מידע על מתכונים
+const initialState = 
+{ 
+    //רשימת המתכונים הגלובלית 
+    listRecipe_Store:[
+            {
+                "recipeName": "עוגת היער השחור",
+                "image": "../pictures/00.jpg",
+            },
+            {
+                "recipeName": "עוגיות רעידת אדמה",
+                "image": "../pictures/01.jpg",
+            },
+            {
+                "recipeName": "מוס שוקולד",
+                "image": "../pictures/02.jpg",
+            }
+            ],
+
+    recipeList_Store: [],
+} 

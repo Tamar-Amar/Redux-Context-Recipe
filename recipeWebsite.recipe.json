@@ -1,0 +1,210 @@
+[{
+  "_id": {
+    "$oid": "6574d2b68846133d76d1a7da"
+  },
+  "nameRecipe": "פאי פקאן",
+  "owner": "תמר",
+  "preparationTime": "30 דקות",
+  "difficultLevel": "מתמחים",
+  "category": "עוגות",
+  "codeRcp": "303",
+  "picture": "00.jpg",
+  "ingredients": [
+    {
+      "name": "קמח",
+      "amount": "100 גרם"
+    },
+    {
+      "name": "ביצים",
+      "amount": "3"
+    }
+  ],
+  "description": "יש לטחון את הפקאן, להוסיף קמח ומים, לערבב במהירות, להוסיף את הפקאן הקצוץ וכו"
+},
+{
+  "_id": "6574d3b58846133d76d1a7dc",
+  "nameRecipe": "גלידת ווניל",
+  "owner": "הדס",
+  "preparationTime": "20 דקות",
+  "difficultLevel": "מתקדמים",
+  "category": "קינוחים",
+  "codeRcp": "202",
+  "picture": "01.jpg"
+},
+{
+  "_id": {
+    "$oid": "657e39b8aa743d757dc79926"
+  },
+  "nameRecipe": "עוגת שוקולית",
+  "owner": "שירה",
+  "preparationTime": "35 דקות",
+  "difficultLevel": "מתחילים",
+  "category": "עוגות",
+  "codeRcp": "351",
+  "picture": "02.jpg"
+},
+{
+  "_id": {
+    "$oid": "657e39b8aa743d757dc79927"
+  },
+  "nameRecipe": "עוגת קפה",
+  "owner": "תמר",
+  "preparationTime": "35 דקות",
+  "difficultLevel": "מתחילים",
+  "category": "עוגות",
+  "codeRcp": "351",
+  "picture": "03.jpg"
+},
+{
+  "_id": {
+    "$oid": "657f2ac91d9834e774199a42"
+  },
+  "nameRecipe": "פאי תפוחים",
+  "owner": "תמר",
+  "preparationTime": "100 דקות",
+  "difficultLevel": "מתקדמים",
+  "category": "עוגות",
+  "codeRcp": "777",
+  "ingredients": [],
+  "picture": "04.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657f2b231d9834e774199a46"
+  },
+  "nameRecipe": "עוגיות שוקולד צ'יפס",
+  "owner": "תמר",
+  "preparationTime": "30 דקות",
+  "difficultLevel": "מתחילים",
+  "category": "עוגיות",
+  "codeRcp": "777",
+  "ingredients": [],
+  "picture": "05.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657f2b761d9834e774199a4a"
+  },
+  "nameRecipe": "עוגת גזר",
+  "owner": "תמר",
+  "preparationTime": "30 דקות",
+  "difficultLevel": "מתחילים",
+  "category": "עוגות",
+  "codeRcp": "777",
+  "ingredients": [],
+  "picture": "06.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65801b2d753ce98901e2b636"
+  },
+  "nameRecipe": "שייק תות",
+  "owner": "תמר",
+  "preparationTime": "15 דקות",
+  "difficultLevel": "מתחילים",
+  "category": "קינוחים",
+  "codeRcp": "777",
+  "ingredients": [
+    {
+      "name": "תותים",
+      "amount": "500 גרם"
+    },
+    {
+      "name": "חלב",
+      "amount": "300 מ\"ל"
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658023ca0822635dfd5d3175"
+  },
+  "nameRecipe": "פחזניות",
+  "owner": "תמר",
+  "preparationTime": "שעתיים",
+  "difficultLevel": "מתקדמים",
+  "category": "קינוחים",
+  "codeRcp": "777",
+  "ingredients": [
+    {
+      "name": "קמח",
+      "amount": "150 גרם"
+    },
+    {
+      "name": "ביצים",
+      "amount": "120 גרם"
+    },
+    {
+      "name": "סוכר",
+      "amount": "כף"
+    },
+    {
+      "name": "מלח",
+      "amount": "חצי כפית"
+    },
+    {
+      "name": "חלב",
+      "amount": "150 מ\"ל"
+    },
+    {
+      "name": "מרגרינה",
+      "amount": "200 גרם"
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658026792d46ea10ac88426d"
+  },
+  "nameRecipe": "עוגיות שוקולד",
+  "owner": "הדס",
+  "preparationTime": "20 דקות",
+  "difficultLevel": "מתקדמים",
+  "category": "עוגיות",
+  "codeRcp": "12345678",
+  "ingredients": [
+    {
+      "name": "סוכר",
+      "amount": "2 כוסות"
+    },
+    {
+      "name": "שמן",
+      "amount": "כוס"
+    }
+  ],
+  "description": "ערבבו את כל החומרים",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6581d1100594c606e462dd93"
+  },
+  "nameRecipe": "חביתה",
+  "owner": "יוסי",
+  "preparationTime": "5 דקות",
+  "difficultLevel": "מתחילים",
+  "category": "אחר",
+  "codeRcp": "777",
+  "ingredients": [
+    {
+      "name": "ביצה",
+      "amount": "1"
+    },
+    {
+      "name": "שמן",
+      "amount": "כף"
+    },
+    {
+      "name": "מלח",
+      "amount": "קורט"
+    }
+  ],
+  "picture": "07.jpg",
+  "description": "פותחים את הביצה, שופכים לתוך כוס, בודקים שאין דם, מקשקשים את הביצה עם מזלג, שופכים שמן על המחבת ומרתיחים. שופכים את הביצה המקושקשת על המחבת , מוסיפים מלח ומטגנים עד שהחביתה מוכנה. לא לשכוח לכבות את האש שלא תהיה שריפה.",
+  "__v": 0
+}]

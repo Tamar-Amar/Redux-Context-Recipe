@@ -1,0 +1,25 @@
+לבדוק מה זה רכיבים במתכון ולטפל בזה
+לעדכן ב showRcpDetails 
+בתוך ה return של הפרטים את:
+    <p>{recipe.ingredients.map(o=><div><p>{o.nameI}</p>----<p>{o.amountI}</p></div>)}</p>
+שיראה את הפרטים גם של הרכיבים
+
+אחרי שמוסיפה תמונה למתכון-
+להוסיף בעמוד RecipeList
+את השורה שמחזירים עם ה mapלשנות ל:
+{list.map(x=><div>{x.recipeName}<img src= {`http://localhost:7777/pic/${x.imgSrc}`}></img><br></br><button onClick={()=>{nav(`../detlis/${x._id}`)}}>למתכון המלא</button></div>)}
+
+app .js בעמוד היה:
+return (
+  //סיפוק מחסן הנתונים
+  <Provider store={store_Store}>
+    <MyProvider value={transfer}>
+      <div className="App text-md-right bg-dark text-light p-4">
+        <BrowserRouter>
+        <Menu></Menu> 
+        <MyRouting></MyRouting>
+        </BrowserRouter> 
+      </div>
+    </MyProvider>
+  </Provider>
+  );

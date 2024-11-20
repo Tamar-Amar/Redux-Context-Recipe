@@ -1,0 +1,214 @@
+Recipe List Components:
+    import { useDispatch, useSelector } from "react-redux";
+    import axios from 'axios';
+    import { useEffect,useState } from 'react';
+    import { useNavigate } from 'react-router-dom';
+    import { FillDataRecipe } from '../REDUX/action';
+    import { getAllRecipe } from './axios/recipeAxios';
+
+    export const ListRecipe_LR = () => {
+    const [rList, setRList] = useState(useSelector(x=>x.listRecipe_LR));
+    let myD=useDispatch()
+
+    useEffect(() => {
+        async function loadDataRecipe() {
+        if (rList || rList.length == 0) {
+            let response = await getAllRecipe();
+            setRList(response.data);
+            myD(FillDataRecipe(response.data));
+        }
+        }
+        loadDataRecipe()
+    },[])
+
+    const nav=useNavigate()
+    let list=useSelector(i=>i.listRecipe_LR)
+    console.log(list)
+    if (!list) {
+        return <div><h1>הרשימה לא תקינה</h1></div>;
+    }
+
+    return <div>
+        {list && list.map(x => (
+            <div key={x._id}>
+            {x.nameRecipe}
+            <br />
+            <button onClick={() => { nav(`../recipeDetails/${x._id}`) }}>למתכון המלא</button>
+            </div>
+        ))}
+        </div>
+    }
+
+Show Recipe Details:
+    import { useEffect,useState } from "react";
+    import { useParams } from "react-router-dom";
+    import { getRecipeByName } from "./axios/recipeAxios";
+
+    export const RecipeData = () => {
+        const[recipe,setRecipe]=useState({ingredients:[]})
+        const params=useParams()
+
+        useEffect(()=>{
+            async function loud(){
+                const recipe=await getRecipeByName(params.nameRecipe)
+                setRecipe(recipe.data)
+            }
+            loud()
+        },[])
+        return <>
+        <h1>{recipe.nameRecipe}</h1>
+        <p>{recipe.owner}</p>
+        <p>{recipe.preparationTime}</p>
+        <p>{recipe.difficultLevel}</p>
+        <p>{recipe.category}</p>
+        </>
+    }
+
+Add Recipe:
+    import { useState } from "react";
+    import { useDispatch } from "react-redux";
+    import { AddRecipeToRedux , FillDataRecipe} from "../REDUX/action";
+    import { useNavigate } from "react-router-dom";
+    import { addRecipe } from "./axios/recipeAxios";
+
+
+    export const AddRecipe_AR = () => {
+        let myD=useDispatch()
+        const navigate=useNavigate()
+        const [r,setr]=useState({ingredients:[{name: " ",amount: ""}]})
+
+        async function addRecipe_local(){
+            const obj = {...r}
+            obj.ingredients=arrc
+            const response=await addRecipe(obj)
+            myD(FillDataRecipe(response.data))
+            navigate("/recipeList")
+        }
+
+        const [show,setShow]=useState(false)
+        const [arrc,setArrc]=useState([{nameI:"",amoutI:"",}])
+        //עדכון שמות של רכיבים ממערך הרכיבים למתכון הסופי
+        const setName= (index,value)=> {
+            const arr=[...arrc]
+            arr[index].nameI=value
+            setArrc(arr)
+        }
+
+        //עדכון כמות של רכיבים ממערך הרכיבים למתכון הסופי
+        const setAmount = (index,value)=> {
+            const arr=[...arrc]
+            arr[index].amoutI=value
+            setArrc(arr)
+        }
+
+        return <div className="form-group container">
+            <p>הוסף מתכון</p>
+            <input id="nameRecipe" type="text" className="form-control" placeholder="הכנס שם מתכון" onChange={(x) => setr({ ...r, nameRecipe: x.target.value })}></input>
+            <br></br>
+            <input id="owner" type="text" className="form-control" placeholder="הכנס שם עורך" onChange={(x) => setr({ ...r, owner: x.target.value })}></input>
+            <br></br>
+            <input id="category" type="text" className="form-control" placeholder="הכנס קטגוריה- עוגות/ עוגיות/ קינוחים" onChange={(x) => setr({ ...r, category: x.target.value })}></input>
+            <br></br>
+            <input id="difficultLevel" type="text" className="form-control" placeholder="הכנס דרגת קושי 1- מתאים לילדים, 2- מתמתחים, 3- מקצועיים" onChange={(x) => setr({ ...r, difficultLevel: x.target.value })}></input>
+            <br></br>
+            <input id="preparationTime" type="text" className="form-control" placeholder="הכנס זמן הכנה בדקות" onChange={(x) => setr({ ...r, preparationTime: x.target.value })}></input>
+            <br></br>
+            <input id="codeRcp" type="text" className="form-control" placeholder="הכנס קוד" onChange={(x) => setr({ ...r, codeRcp: x.target.value })}></input>
+            <br></br>
+            <button className="btn btn-default btn-block" onClick={() => { setShow(true) }}>הוסף רכיבים למתכון</button>
+            <br></br>
+            <button className="btn btn-default btn-block" onClick={() => addRecipe_local()}>הוסף מתכון</button>
+            <br></br>
+
+            {
+                show && <>
+                    {arrc.map((recipe, index) => <div className="form-group container">
+                        <input type="text" className="form-control" placeholder="שם רכיב" value={recipe.nameI}
+                            onChange={(e) => { setName(index, e.target.value) }}></input>
+                        <input type="text" className="form-control" placeholder="כמות" value={recipe.amountI}
+                            onChange={(e) => { setAmount(index, e.target.value) }}></input>
+                        <br></br>
+                    </div>)}
+                    <br></br>
+
+                    <br></br>
+                    <button onClick={() => { setArrc(arrc.concat({ nameI: "", amountI: "" })) }}>+</button>
+                </>}
+        </div>
+
+    }
+
+02 Add Recipe:
+    export const AddRecipe_AR = () => {
+        let myD=useDispatch()
+        const navigate=useNavigate()
+        const [newRecipy, setNewRecipy]=useState({})
+        const [IngredientsArr, setIngredientsArr]=useState([{Name:"", Amount:""}])
+
+        const addRecipe_local=async()=>{
+            obj.ingredients = ingredients
+            const response=await addRecipe(obj)
+            //myD(AddRecipeToRedux(response.data))
+            //הוספת המתכון לשרת
+            const allNewRecipy={...newRecipy}
+            allNewRecipy.Ingredients=IngredientsArr
+            let res=await addRecipy(allNewRecipy)
+            alert("המתכון נוסף בהצלחה")
+            navigate("/home")
+        }
+
+        const [show,setShow]=useState(false)
+
+        //עדכון שמות של רכיבים ממערך הרכיבים למתכון הסופי
+        const setName= (index,value)=> {
+            const arrIn=[...ingredients]
+            arrIn[index].nameI=value
+            setIngredients({...ingredients})
+        }
+
+        //עדכון כמות של רכיבים ממערך הרכיבים למתכון הסופי
+        const setAmount = (index,value)=> {
+            const arrIn=[...ingredients]
+            arrIn[index].amountI=value
+            setIngredients({...ingredients})
+        }
+
+        return <div className="form-group container">
+            <br/>
+            <h2>הוסף מתכון</h2>
+            <br/>
+            <input id="nameRecipe" type="text" className="form-control" placeholder="הכנס שם מתכון" onChange={(a) => setr({ ...r, nameRecipe: a.target.value })}></input>
+            <br></br>
+            <input id="owner" type="text" className="form-control" placeholder="הכנס שם עורך" onChange={(a) => setr({ ...r, owner: a.target.value })}></input>
+            <br></br>
+            <input id="category" type="text" className="form-control" placeholder="הכנס קטגוריה- עוגות/ עוגיות/ קינוחים" onChange={(a) => setr({ ...r, category: a.target.value })}></input>
+            <br></br>
+            <input id="difficultLevel" type="text" className="form-control" placeholder="הכנס דרגת קושי 1- מתאים לילדים, 2- מתמתחים, 3- מקצועיים" onChange={(a) => setr({ ...r, difficultLevel: a.target.value })}></input>
+            <br></br>
+            <input id="preparationTime" type="text" className="form-control" placeholder="הכנס זמן הכנה בדקות" onChange={(a) => setr({ ...r, preparationTime: a.target.value })}></input>
+            <br></br>
+            <input id="codeRcp" type="text" className="form-control" placeholder="הכנס קוד" onChange={(a) => setr({ ...r, codeRcp: a.target.value })}></input>
+            <br></br>
+            <button className="btn btn-light btn-block" onClick={() => { setShow(true) }}>הוסף רכיבים למתכון</button>
+            <br></br>
+            <br></br>
+
+            {
+                show && (<>
+                    {ingredients.map((recipe, index) => <div className="form-group container">
+                        <input type="text" className="form-control" placeholder="שם רכיב" value={recipe.nameI}
+                            onChange={(e) => { setName(index, e.target.value) }}></input>
+                        <br></br>
+                        <input type="text" className="form-control" placeholder="כמות" value={recipe.amountI}
+                            onChange={(e) => { setAmount(index, e.target.value) }}></input>
+                        <br></br>
+                    </div>)}
+                    <button onClick={() => { setIngredients([...ingredients, {nameI:"", amountI:""}])}}>+</button>
+                </>)
+            }
+                <br></br>
+                <button className="btn btn-light btn-block" onClick={() => addRecipe_local()}>הוסף מתכון</button>
+        </div>
+
+    }
+

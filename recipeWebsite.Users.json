@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "657a2f33ec1e5bb75d6b697a"
+  },
+  "userName": "שירה",
+  "userPassword": "333",
+  "emailAdress": "shira34137@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "657b0264dd95ac54cc226711"
+  },
+  "userName": "יעל",
+  "userPassword": "555",
+  "userEmailAdress": "yael9999@gmail.com",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657b0285dd95ac54cc226714"
+  },
+  "userName": "מלכה",
+  "userPassword": "666",
+  "userEmailAdress": "malcka231@gmail.com",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657b0b6c09ea857ad05d8fe2"
+  },
+  "userName": "שולמית",
+  "userPassword": "999",
+  "userEmailAdress": "shula@gmail.com",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657b0ed5a328bafb4e41a29a"
+  },
+  "userName": "רחל",
+  "userPassword": "121",
+  "userEmailAdress": "r23454@gmail.com",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657f6e4b546c1e0bc6a55eec"
+  },
+  "userName": "לאה",
+  "userPassword": "1234",
+  "__v": 0
+}]

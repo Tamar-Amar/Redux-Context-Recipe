@@ -1,0 +1,14 @@
+//   useEffect(() =>{
+//     async function loadData_A() {
+//       if(list.length==0){
+//         let response=await getAllUser()
+//         setlist(response.data)
+//       }
+//     }
+//     loadData_A()
+//   },[])
+
+
+
+
+// const [currentUser,setCurrentUser]=useState({})
